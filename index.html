@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorien Editing Mordorlabs | Precision Editing Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:wght@400;500;600&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #0c1a1a;
+            --primary-green: #2d5a4a;
+            --accent-gold: #c9a959;
+            --accent-red: #8b3333;
+            --light-bg: #f5f1e8;
+            --text-light: #f0f0f0;
+            --text-dark: #1a1a1a;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            background-image: url('https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 26, 26, 0.85);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(to bottom, rgba(12, 26, 26, 0.95), rgba(12, 26, 26, 0.8));
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-bg);
+            font-size: 24px;
+        }
+        
+        .logo-text {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        
+        .logo-text .tagline {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-family: 'Lora', serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        
+        nav a:hover {
+            color: var(--accent-gold);
+            background: rgba(201, 169, 89, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            background: linear-gradient(rgba(12, 26, 26, 0.7), rgba(12, 26, 26, 0.9));
+            margin-top: 80px;
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        
+        .hero h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-family: 'Lora', serif;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-red));
+            color: var(--text-light);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, var(--accent-red), var(--accent-gold));
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: rgba(245, 241, 232, 0.95);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 15px auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border-top: 5px solid var(--accent-gold);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            background: var(--primary-green);
+            color: var(--accent-gold);
+            font-size: 2.5rem;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            padding: 5px 0;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-features i {
+            color: var(--accent-gold);
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: rgba(12, 26, 26, 0.9);
+            color: var(--text-light);
+        }
+        
+        .process .section-title {
+            color: var(--accent-gold);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: var(--accent-gold);
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 25px;
+            border: 5px solid var(--primary-dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .step h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: rgba(245, 241, 232, 0.95);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+            display: none;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 25px;
+            font-family: 'Lora', serif;
+            line-height: 1.7;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-dark);
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.2);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(12, 26, 26, 0.9), rgba(12, 26, 26, 0.95));
+            text-align: center;
+            color: var(--text-light);
+        }
+        
+        .cta-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            font-family: 'Lora', serif;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            color: var(--accent-gold);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            text-align: center;
+            line-height: 40px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                margin-bottom: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 30px;
+                right: 20px;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header-container {
+                align-items: flex-start;
+            }
+            
+            .hero {
+                margin-top: 120px;
+            }
+            
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-feather-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Lorien Editing Mordorlabs</h1>
+                    <div class="tagline">Where Elven Precision Meets Scholarly Rigor</div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Transform Your Manuscript</h2>
+            <p>From the rough drafts of Mordor to the polished prose of Lothlórien, our expert editors bring scholarly precision and elven artistry to every word.</p>
+            <a href="#contact" class="cta-button">Begin Your Editing Journey</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Editing Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Literary Editing</h3>
+                        <p>For novels, short stories, and poetry. We refine narrative flow, character development, and stylistic elements while preserving your unique voice.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Developmental Editing</li>
+                            <li><i class="fas fa-check"></i> Line-by-Line Refinement</li>
+                            <li><i class="fas fa-check"></i> Genre-Specific Feedback</li>
+                            <li><i class="fas fa-check"></i> Manuscript Evaluation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Academic & Technical</h3>
+                        <p>For research papers, theses, and technical documents. We ensure clarity, coherence, and adherence to scholarly standards.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Citation Formatting (APA, MLA, Chicago)</li>
+                            <li><i class="fas fa-check"></i> Technical Accuracy Review</li>
+                            <li><i class="fas fa-check"></i> Argument Strengthening</li>
+                            <li><i class="fas fa-check"></i> Journal Submission Ready</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Premium Proofreading</h3>
+                        <p>The final polish. We eliminate grammatical errors, typos, and inconsistencies to ensure your work shines with perfection.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Grammar & Syntax Correction</li>
+                            <li><i class="fas fa-check"></i> Consistency Checking</li>
+                            <li><i class="fas fa-check"></i> Formatting Perfection</li>
+                            <li><i class="fas fa-check"></i> 48-Hour Express Service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">Our Editing Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Submission & Assessment</h3>
+                    <p>You submit your manuscript. We conduct an initial assessment and provide a timeline and quote.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Deep Structural Edit</h3>
+                    <p>Our editors analyze structure, flow, and coherence, providing comprehensive feedback.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Line-by-Line Refinement</h3>
+                    <p>Every sentence is polished for clarity, style, and impact while preserving your unique voice.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Final Proofread & Delivery</h3>
+                    <p>A meticulous final check ensures perfection before your edited work is returned to you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Authors & Scholars Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active" id="testimonial1">
+                    <div class="testimonial-text">
+                        Lorien Editing transformed my fantasy novel from a confusing draft into a compelling narrative. Their understanding of world-building and character development is exceptional. The final manuscript secured me a literary agent within weeks.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">EJ</div>
+                        <div class="author-info">
+                            <h4>Elena Jorund</h4>
+                            <p>Fantasy Author, "The Crystal Chronicles"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial" id="testimonial2">
+                    <div class="testimonial-text">
+                        As a PhD candidate in medieval history, I needed an editor who understood both academic rigor and narrative flow. Mordorlabs delivered beyond expectations. My dissertation was not only error-free but also more compelling and persuasive.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RM</div>
+                        <div class="author-info">
+                            <h4>Dr. Robert Moreau</h4>
+                            <p>Medieval History Scholar, University of Oxford</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial" id="testimonial3">
+                    <div class="testimonial-text">
+                        The technical editing service for our research paper was impeccable. They caught subtle errors in our statistical analysis descriptions and improved the clarity of our methodology section. Our paper was accepted without revision.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Research Team Lead, Stanford University</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Elevate Your Writing?</h2>
+            <p>Submit your manuscript for a free sample edit. Experience the Lorien Editing difference before you commit.</p>
+            <a href="#contact-form" class="cta-button">Request Free Sample Edit</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lorien Editing Mordorlabs</h3>
+                    <p>Bridging the realms of creative artistry and scholarly precision since 2010. We transform manuscripts with elven care and academic rigor.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> <span>The Scholar's Haven, Rivendell, ME 04101</span></li>
+                        <li><i class="fas fa-phone"></i> <span>(207) 555-EDIT</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>editing@lorienmordorlabs.com</span></li>
+                        <li><i class="fas fa-clock"></i> <span>Mon-Fri: 9am-6pm EST</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Lorien Editing Mordorlabs. All rights reserved. | Where every word matters.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after clicking a link
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+        
+        // Testimonial Slider
+        const testimonialDots = document.querySelectorAll('.slider-dot');
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                
+                // Remove active class from all testimonials and dots
+                testimonials.forEach(testimonial => {
+                    testimonial.classList.remove('active');
+                });
+                
+                testimonialDots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Add active class to selected testimonial and dot
+                testimonials[slideIndex].classList.add('active');
+                this.classList.add('active');
+                currentTestimonial = slideIndex;
+            });
+        });
+        
+        // Auto-rotate testimonials
+        function rotateTestimonials() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            
+            // Remove active class from all testimonials and dots
+            testimonials.forEach(testimonial => {
+                testimonial.classList.remove('active');
+            });
+            
+            testimonialDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Add active class to next testimonial and dot
+            testimonials[currentTestimonial].classList.add('active');
+            testimonialDots[currentTestimonial].classList.add('active');
+        }
+        
+        // Change testimonial every 8 seconds
+        setInterval(rotateTestimonials, 8000);
+        
+        // Form submission simulation
+        document.querySelectorAll('.cta-button').forEach(button => {
+            if (button.getAttribute('href') === '#contact-form') {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your interest! In a real implementation, this would open a contact form. For this demo, please imagine a beautiful form appearing here.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
